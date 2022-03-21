@@ -38,7 +38,7 @@ eval("\n\n__webpack_require__(/*! core-js/es6 */ \"../node_modules/core-js/es6/i
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_sass_style_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/sass/style.sass */ \"./sass/style.sass\");\n/* harmony import */ var _assets_icon_bag_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/icon/bag.svg */ \"./assets/icon/bag.svg\");\n/* harmony import */ var _assets_icon_basket_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/icon/basket.svg */ \"./assets/icon/basket.svg\");\n/* harmony import */ var _assets_icon_heart_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/icon/heart.svg */ \"./assets/icon/heart.svg\");\n/* harmony import */ var _assets_icon_person_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/icon/person.svg */ \"./assets/icon/person.svg\");\n/* harmony import */ var _assets_icon_play_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/icon/play.svg */ \"./assets/icon/play.svg\");\n/* harmony import */ var _assets_icon_search_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./assets/icon/search.svg */ \"./assets/icon/search.svg\");\n/* harmony import */ var _assets_img_boots_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./assets/img/boots.png */ \"./assets/img/boots.png\");\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module '../src/sass/style.sass'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n/* harmony import */ var _assets_icon_bag_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/icon/bag.svg */ \"./assets/icon/bag.svg\");\n/* harmony import */ var _assets_icon_basket_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/icon/basket.svg */ \"./assets/icon/basket.svg\");\n/* harmony import */ var _assets_icon_heart_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/icon/heart.svg */ \"./assets/icon/heart.svg\");\n/* harmony import */ var _assets_icon_person_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/icon/person.svg */ \"./assets/icon/person.svg\");\n/* harmony import */ var _assets_icon_play_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/icon/play.svg */ \"./assets/icon/play.svg\");\n/* harmony import */ var _assets_icon_search_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./assets/icon/search.svg */ \"./assets/icon/search.svg\");\n/* harmony import */ var _assets_img_boots_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./assets/img/boots.png */ \"./assets/img/boots.png\");\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -3167,17 +3167,6 @@ eval("// ie9- setTimeout & setInterval additional parameters fix\nvar global = _
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("__webpack_require__(/*! ../modules/web.timers */ \"../node_modules/core-js/modules/web.timers.js\");\n__webpack_require__(/*! ../modules/web.immediate */ \"../node_modules/core-js/modules/web.immediate.js\");\n__webpack_require__(/*! ../modules/web.dom.iterable */ \"../node_modules/core-js/modules/web.dom.iterable.js\");\nmodule.exports = __webpack_require__(/*! ../modules/_core */ \"../node_modules/core-js/modules/_core.js\");\n\n\n//# sourceURL=webpack:///../node_modules/core-js/web/index.js?");
-
-/***/ }),
-
-/***/ "./sass/style.sass":
-/*!*************************!*\
-  !*** ./sass/style.sass ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./sass/style.sass?");
 
 /***/ }),
 
