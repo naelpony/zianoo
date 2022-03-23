@@ -1,18 +1,10 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
-
-const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000
-  },
+  context: path.join(__dirname, 'src'),
   entry: {
     index: [
       '@babel/polyfill',
@@ -20,79 +12,93 @@ module.exports = {
     ],
     script: [
       './js/script.js',
-    ]
+    ],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     clean: true,
-    filename: devMode ? '[name].js' : '[name].[contenthash].js',
-    assetModuleFilename: devMode ? 'img/[name].[ext]' : 'img/[name].[contenthash].[ext]',
-
+    filename: '[name].[contenthash].js',
+    assetModuleFilename: 'assets/[name].[contenthash].[ext]',
   },
   devServer: {
-    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    liveReload: true,
     open: true,
     compress: true,
     hot: true,
     port: 3000,
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[contenthash].css',
-    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html',
       inject: 'body',
     }),
   ],
+  optimization: {
+    minimizer: [
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [
+              "imagemin-gifsicle",
+              "imagemin-mozjpeg",
+              "imagemin-pngquant",
+            ],
+          },
+        },
+        loader: false,
+      }),
+    ],
+  },
   module: {
-    rules: [
+    rules: [{
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        type: "asset",
+      },
       {
         test: /\.s[ac]ss$/i,
-        use: [{
-          loader: MiniCssExtractPlugin.loader,
-        },
-          'css-loader',
-          'sass-loader',
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'autoprefixer',
+                  ],
+                ],
+              },
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
-        type: 'javascript/auto'
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: devMode ? 'img/[name].[ext]' : 'img/[name].[contenthash].[ext]'
-        },
-      },
-      {
-        test: /\.(svg)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: devMode ? 'svg/[name].[ext]' : 'svg/[name].[contenthash].[ext]' 
-        },
-      },
-      {
-        test: /\.(ttf)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: devMode ? 'fonts/[name].[ext]' : 'fonts/[name].[contenthash].[ext]'
-        },
       },
       {
         test: /\.m?js$/,
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env'
-            ]
-          }
         }
       }
     ]
