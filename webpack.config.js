@@ -15,14 +15,14 @@ module.exports = {
     ],
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
     filename: '[name].[contenthash].js',
     assetModuleFilename: 'assets/[name].[contenthash].[ext]',
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.resolve(__dirname, 'dist'),
     },
     liveReload: true,
     open: true,
@@ -37,23 +37,23 @@ module.exports = {
       inject: 'body',
     }),
   ],
-  optimization: {
-    minimizer: [
-      new ImageMinimizerPlugin({
-        minimizer: {
-          implementation: ImageMinimizerPlugin.imageminMinify,
-          options: {
-            plugins: [
-              "imagemin-gifsicle",
-              "imagemin-mozjpeg",
-              "imagemin-pngquant",
-            ],
-          },
-        },
-        loader: false,
-      }),
-    ],
-  },
+  // optimization: {
+  //   minimizer: [
+  //     new ImageMinimizerPlugin({
+  //       minimizer: {
+  //         implementation: ImageMinimizerPlugin.imageminMinify,
+  //         options: {
+  //           plugins: [
+  //             "imagemin-gifsicle",
+  //             "imagemin-mozjpeg",
+  //             "imagemin-pngquant",
+  //           ],
+  //         },
+  //       },
+  //       loader: false,
+  //     }),
+  //   ],
+  // },
   module: {
     rules: [{
         test: /\.html$/i,
@@ -62,6 +62,26 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         type: "asset",
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          {
+            loader: ImageMinimizerPlugin.loader,
+            options: {
+              minimizer: {
+                implementation: ImageMinimizerPlugin.imageminMinify,
+                options: {
+                  plugins: [
+                    "imagemin-gifsicle",
+                    "imagemin-mozjpeg",
+                    "imagemin-pngquant",
+                  ],
+                },
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.s[ac]ss$/i,
