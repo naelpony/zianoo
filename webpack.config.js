@@ -5,6 +5,7 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = {
   context: path.join(__dirname, 'src'),
+  target: 'web',
   entry: {
     index: [
       '@babel/polyfill',
@@ -22,38 +23,21 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'dist'),
+      directory: path.resolve(__dirname, './dist/'),
+      publicPath: '/',
     },
-    liveReload: true,
     open: true,
     compress: true,
-    hot: true,
-    port: 3000,
+    hot: false,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html',
+      publicPath: './',
       inject: 'body',
     }),
   ],
-  // optimization: {
-  //   minimizer: [
-  //     new ImageMinimizerPlugin({
-  //       minimizer: {
-  //         implementation: ImageMinimizerPlugin.imageminMinify,
-  //         options: {
-  //           plugins: [
-  //             "imagemin-gifsicle",
-  //             "imagemin-mozjpeg",
-  //             "imagemin-pngquant",
-  //           ],
-  //         },
-  //       },
-  //       loader: false,
-  //     }),
-  //   ],
-  // },
   module: {
     rules: [{
         test: /\.html$/i,
@@ -61,27 +45,21 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        type: "asset",
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [
-          {
-            loader: ImageMinimizerPlugin.loader,
-            options: {
-              minimizer: {
-                implementation: ImageMinimizerPlugin.imageminMinify,
-                options: {
-                  plugins: [
-                    "imagemin-gifsicle",
-                    "imagemin-mozjpeg",
-                    "imagemin-pngquant",
-                  ],
-                },
+        use: [{
+          loader: ImageMinimizerPlugin.loader,
+          options: {
+            minimizer: {
+              implementation: ImageMinimizerPlugin.imageminMinify,
+              options: {
+                plugins: [
+                  "imagemin-gifsicle",
+                  "imagemin-mozjpeg",
+                  "imagemin-pngquant",
+                ],
               },
             },
           },
-        ],
+        }, ],
       },
       {
         test: /\.s[ac]ss$/i,
