@@ -4,8 +4,7 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 
 module.exports = {
-  context: path.join(__dirname, 'src'),
-  target: 'web',
+  context: path.resolve(__dirname, 'src'),
   entry: {
     index: [
       '@babel/polyfill',
@@ -14,12 +13,13 @@ module.exports = {
     script: [
       './js/script.js',
     ],
+    
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     filename: '[name].[contenthash].js',
-    assetModuleFilename: 'assets/[name].[contenthash].[ext]',
+    assetModuleFilename: 'assets/[hash][ext][query]',
   },
   devServer: {
     static: {

@@ -1,15 +1,40 @@
 @import '_fonts.sass'
 @import '_header.sass'
 
-
+//Шрифт по умолчанию
+$fontfamily: 'CircularStd-Regular'
+//Размер шрифта по умолчанию
+$fontsize: 14px
+*
+	padding: 0px
+	margin: 0px
+	border: 0px
+*, *:before, *:active
+	box-sizing: border-box
+*:focus, :active, :focus
+	outline: none
+a:focus, a:active
+	outline: none
+nav, footer, header, aside, section
+	display: block
+html, body
+	height: 100%
+	margin: 0px
+	padding: 0px
+	position: relative
+	width: 100%
+	color: #000
 body
-  font-family: 'CircularStd-Regular'
-  font-size: 77px
-  background-color: #235124
-  background-image: url('../assets/img/boots.png')
-  display: flex
-  flex-direction: column
+	font-size: 100%
+	line-height: 1
+	font-size: $fontsize
+	font-family: $fontfamily
+a, a:hover, a:visited
+	text-decoration: none
+ul, li
+	list-style: none
 
-
+.header
+	margin: 40px 50px
 
 @import '_footer.sass'

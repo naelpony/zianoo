@@ -4,31 +4,80 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-    <title>ZIANOO</title>   
+
+    <script src="./js/feather.min.js"></script>
+    <title>ZIANOO</title>
   </head>
   <body>
-    <header>
-      <div class="contaoner">
+    <header class="header">
+      <div class="container">
         <div class="menu">
           <div class="menu-logo">
             <p>zianoo<sup>TM</sup></p>
           </div>
           <ul class="menu-navigation">
             <li class="menu-navigation__item">
-              <a href="#" class="menu-navigation__link"><div id="bag"></div></a>
+              <a href="#" class="menu-navigation__link"
+                ><i data-feather="search"></i
+              ></a>
             </li>
             <li class="menu-navigation__item">
-              <a href="#" class="menu-navigation__link"></a>
+              <a href="#" class="menu-navigation__link"
+                ><i data-feather="shopping-bag"></i
+              ></a>
             </li>
             <li class="menu-navigation__item">
-              <a href="#" class="menu-navigation__link"></a>
+              <a href="#" class="menu-navigation__link"
+                ><i data-feather="user"></i
+              ></a>
             </li>
           </ul>
         </div>
       </div>
     </header>
+    <main class="main">
+      <div class="container">
+        <div class="main-page">
+          <div class="page-left">
+            <nav class="main-menu">
+              <ul class="main-menu__nav">
+                <li class="main-menu__item">
+                  <a href="" class="main-menu__link">Shoes</a>
+                </li>
+                <li class="main-menu__item">
+                  <a href="" class="main-menu__link">Bags</a>
+                </li>
+                <li class="main-menu__item">
+                  <a href="" class="main-menu__link">Accessories</a>
+                  <div class="main-menu__new">New</div>
+                </li>
+                <li class="main-menu__item">
+                  <a href="" class="main-menu__link">Support</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="main-page__text">
+              <div class="text-left">
+                Extra<br>Care
+              </div>
+              <div class="text-right">
+                Foot<br>Tech
+              </div>
+            </div>
+            <div class="main-page__learnmore">
+              <span class="border"></span>
+              <div class="learnmore__text">learn more</div>
+            </div>
+          </div>
+          <div class="main-center">
+            
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      feather.replace();
+    </script>
   </body>
 </html>
