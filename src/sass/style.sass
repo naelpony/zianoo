@@ -29,12 +29,82 @@ body
 	line-height: 1
 	font-size: $fontsize
 	font-family: $fontfamily
+	max-width: 1440px
+	max-height: 990px
 a, a:hover, a:visited
 	text-decoration: none
 ul, li
 	list-style: none
 
 .header
-	margin: 40px 50px
+	margin: 40px 40px 0 50px
+
+.main
+	margin: 105px 38px 50px 48px
+.container
+.main-page
+	display: flex
+.page-left
+.left-menu
+.left-menu__nav
+	font-family: 'SofiaProExtraLight'
+	font-style: normal
+	font-weight: 400
+	font-size: 22px
+	line-height: 33px
+
+	color: #3A3A3A
+.left-menu__item
+	padding: 0 0 60px 0
+	&:last-child
+		padding: 0 0 0 0
+.left-menu__link
+	color: #3A3A3A
+.new
+	display: flex
+	align-items: center
+.left-menu__new
+	margin: 0 0 0 12px
+	font-size: 12px
+	line-height: 18px
+	color: #FFFFFF
+
+.new-text
+	padding: 3px 8px
+	background: #000000
+	opacity: 0.2
+	border-radius: 40px
+
+.left-page__text
+	display: flex
+	margin: 165px 0 0 0
+
+	font-family: 'SofiaProUltraLight'
+	font-style: normal
+	font-size: 44px
+
+.text-left
+	font-style: 700
+	color: white
+
+	background: #000000
+.text-right
+.main-page__learnmore
+	font-family: 'SofiaProRegular'
+	font-size: 15px
+	line-height: 23px
+
+	color: #000000
+.line
+	content: ''
+	position: absolute
+	width: 44px
+	border-top: 1px solid #4e4e4e
+.learnmore__text
+.page-center
+.page-center__content
+.content__buttons
+.buttons__add
+.buttons__watch
 
 @import '_footer.sass'
