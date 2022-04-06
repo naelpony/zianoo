@@ -29,23 +29,15 @@ body
 	line-height: 1
 	font-size: $fontsize
 	font-family: $fontfamily
-	max-width: 1440px
-	max-height: 990px
 a, a:hover, a:visited
 	text-decoration: none
 ul, li
 	list-style: none
 
-.header
-	margin: 40px 40px 0 50px
-
 .main
 	margin: 105px 38px 50px 48px
-.container
 .main-page
 	display: flex
-.page-left
-.left-menu
 .left-menu__nav
 	font-family: 'SofiaProExtraLight'
 	font-style: normal
@@ -88,7 +80,6 @@ ul, li
 	color: white
 	font-family: 'SofiaProRegular'
 	background: #000000
-.text-right
 .left-page__learnmore
 	display: flex
 	margin: 38px 0 0 0
@@ -113,8 +104,13 @@ ul, li
 .left-page__scroll
 	margin: 122px 0 50px 10px
 .page-center
+
 	margin: 34px 0 0 109px
+.swiper
+	width: 1042px
 .page-center__content
+	position: absolute
+	z-index: 5
 	& p
 		font-family: 'SofiaProRegular'
 		font-size: 21px
@@ -134,7 +130,9 @@ ul, li
 		color: #000000
 		& sup
 			font-size: 22px
-
+.swiper-slide
+	overflow: hidden
+	box-sizing: border-box
 .content__buttons
 	margin: 50px 0 0 0
 .buttons__add
@@ -151,6 +149,8 @@ ul, li
 	color: #FFFFFF
 	background: #030304
 	border-radius: 8px
+	&:hover
+		background: #526495
 .feather-shopping-bag
 	color: #FFFFFF
 	margin: 0 12.5px 0 0
@@ -176,4 +176,64 @@ ul, li
 .feather-play-circle
 	margin: 0 12.5px 0 0
 
+.image__bgtext
+	position: absolute
+	z-index: -1
+	top: -15%
+	left: 50%
+	font-weight: 800
+	font-size: 430px
+	line-height: 587px
+	letter-spacing: -0.02em
+
+	color: #ECCA7B
+
+	opacity: 0.2
+.image
+	position: relative
+	left: 5%
+	margin: 185px 0 38px 0
+
+.page-right
+	display: flex
+	align-items: center
+	justify-content: space-between
+	flex-direction: column
+.about
+	display: flex
+	flex-direction: column
+	margin: 0 0 0 60px
+.about-item
+	padding: 32px 0 0 0
+	&:first-child
+		padding: 0
+.about-item__link
+	font-family: 'CircularStd-Medium'
+	font-weight: 500
+	font-size: 14px
+	line-height: 18px
+
+	color: #000000
+
+	writing-mode: tb-rl
+	transform: rotate(-180deg)
+
+.social
+	display: flex
+	flex-direction: column
+	margin: 0 0 60px 60px
+.social-item
+	padding: 32px 0 0 0
+	&:first-child
+		padding: 0
+.social-item__link
+	font-family: 'CircularStd-Medium'
+	font-weight: 500
+	font-size: 14px
+	line-height: 18px
+
+	color: #000000
+
+	writing-mode: tb-rl
+	transform: rotate(-180deg)
 @import '_footer.sass'
